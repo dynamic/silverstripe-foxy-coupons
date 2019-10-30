@@ -1,0 +1,19 @@
+---
+name: foxy-coupons-config
+---
+Dynamic\Foxy\Discounts\Model\DiscountTier:
+  extensions:
+    - Dynamic\Foxy\Coupons\Extension\DiscountTierDataExtension
+
+Dynamic\Foxy\Coupons\Model\Coupon:
+  NameDescription: 'The name of this coupon. This will be for your own use and displayed to the customer.'
+  AllowedUsesDescription: 'This is the total number of times this coupon is allowed to be used. This can be helpful for promotions that involve offering a discount to the first 100 customers, as an example, even though more than 100 coupon codes were given out. Leave as 0 to ignore this feature.'
+  AllowedUsesPerCustomerDescription: 'If each customer is only allowed to use this coupon once, enter 1 here. This is based off of the customer email address, not a payment method, ip address, shipping address or browser cookie. Leave as 0 to ignore this feature.'
+  UsesPerCodeDescription: 'If you want to limit the number of uses per individual coupon code, enter that number here. If you want each code to only be used once, enter 1 here. Leave as 0 to ignore this feature.'
+  SkuRestrictionsDescription: "If you want to limit which products can use this coupon, you can enter a comma separated listed of product codes or partial product codes using * as a wild card at the beginning or end of the value. So abc123, fun_*, *-small would match abc123, fun_ and fun_times, and example-small. It wouldn't match abc12, abc1234, fun, or good-smalls."
+  DiscountTypeDescription: 'This specifies what type of discount will be applied. Will it be a percentage discount or an amount discount based on either the product price or the product quantity?'
+  CombinableDescription: 'If Yes, this coupon can be combined with other coupons. If No, the coupon will not be added to the cart if another coupon is already in the cart. Similarly, if this coupon is added first, no other coupons will be able to be added to the cart.'
+  MultipleCodesAllowedDescription: 'Set to Yes if you want to allow your customers to use multiple coupon codes from this coupon on the same order. If No, the customer will see an error if they try to add another coupon code if one for this coupon is already in the cart.'
+  ExcludeCategoryDiscountsDescription: 'Set to Yes if you want to ensure category discounts are not applied for an order that uses this coupon.'
+  ExcludeLineItemDiscountsDescription: 'Set to Yes if you want to ensure line item discounts are not applied to any products for an order that uses this coupon.'
+  IsTaxableDescription: "Set to Yes to apply taxes before this coupon's discount is applied. Check with your tax professional if you have questions about how you should calculate taxes."
